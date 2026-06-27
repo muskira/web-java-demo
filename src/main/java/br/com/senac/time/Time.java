@@ -3,11 +3,11 @@ package br.com.senac.time;
 public class Time {
 
     private int id;
-    private String Nome;
+    private String nome;
 
     public Time(int id, String nome) {
         this.id = id;
-        Nome = nome;
+        this.nome = nome;
     }
 
     public Time(){
@@ -23,10 +23,10 @@ public class Time {
     }
 
     public String getNome() {
-        return Nome;
+        return nome;
     }
 
     public void setNome(String nome) {
-        Nome = nome;
+        this.nome = nome;
     }
 }
