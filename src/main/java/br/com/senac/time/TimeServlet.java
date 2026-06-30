@@ -45,7 +45,7 @@ public class TimeServlet extends HttpServlet {
             resp.getWriter().println(gson.toJson(criado));
 
         }catch (Exception e){
-            System.out.println("Vasco");
+            System.out.println("Flamengo");
         }
     }
 
