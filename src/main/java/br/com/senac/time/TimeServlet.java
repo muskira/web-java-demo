@@ -27,11 +27,19 @@ public class TimeServlet extends HttpServlet {
         try {
             if (pathInfo == null || pathInfo.equals("/")){
                 List<Time> times = dao.listarTodos();
-                resp.getWriter().println(gson.toJson(times));
+                resp.getWriter().print(gson.toJson(times));
+            }else {
+                int id = Integer.parseInt(pathInfo.substring(1));
+                Time time = dao.buscarPorId(id);
+                if (time != null) {
+                    resp.getWriter().print(gson.toJson(time));
+                }else {
+                    resp.sendError(HttpServletResponse.SC_NOT_FOUND);
+                }
             }
 
         }catch (Exception e){
-
+            //tratar erro
         }
     }
 
