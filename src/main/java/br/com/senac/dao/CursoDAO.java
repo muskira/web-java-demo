@@ -19,6 +19,12 @@ public class CursoDAO {
 
         String sql = "SELECT * FROM curso";
 
+        try {
+            Class.forName("com.mysql.cj.jdbc.Driver");
+        } catch (ClassNotFoundException e){
+
+        }
+
         try (Connection conn = DriverManager.getConnection(URL, USER, PASSWORD);
              PreparedStatement stmt = conn.prepareStatement(sql);
              ResultSet rs = stmt.executeQuery()) {
@@ -42,6 +48,12 @@ public class CursoDAO {
     public Curso buscarPorId(int id) throws SQLException {
 
         String sql = "SELECT * FROM curso WHERE id = ?";
+
+        try {
+            Class.forName("com.mysql.cj.jdbc.Driver");
+        } catch (ClassNotFoundException e){
+
+        }
 
         try (Connection conn = DriverManager.getConnection(URL, USER, PASSWORD);
              PreparedStatement stmt = conn.prepareStatement(sql)) {
@@ -71,6 +83,12 @@ public class CursoDAO {
 
         String sql = "INSERT INTO curso(nome,carga_horaria) VALUES (?,?)";
 
+        try {
+            Class.forName("com.mysql.cj.jdbc.Driver");
+        } catch (ClassNotFoundException e){
+
+        }
+
         try (Connection conn = DriverManager.getConnection(URL, USER, PASSWORD);
              PreparedStatement stmt = conn.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS)) {
 
@@ -95,6 +113,12 @@ public class CursoDAO {
 
         String sql = "UPDATE curso SET nome=?, carga_horaria=? WHERE id=?";
 
+        try {
+            Class.forName("com.mysql.cj.jdbc.Driver");
+        } catch (ClassNotFoundException e){
+
+        }
+
         try (Connection conn = DriverManager.getConnection(URL, USER, PASSWORD);
              PreparedStatement stmt = conn.prepareStatement(sql)) {
 
@@ -110,6 +134,12 @@ public class CursoDAO {
     public boolean excluir(int id) throws SQLException {
 
         String sql = "DELETE FROM curso WHERE id=?";
+
+        try {
+            Class.forName("com.mysql.cj.jdbc.Driver");
+        } catch (ClassNotFoundException e){
+
+        }
 
         try (Connection conn = DriverManager.getConnection(URL, USER, PASSWORD);
              PreparedStatement stmt = conn.prepareStatement(sql)) {

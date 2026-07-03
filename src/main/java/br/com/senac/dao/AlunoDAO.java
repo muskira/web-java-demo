@@ -24,6 +24,12 @@ public class AlunoDAO {
 
         String sql = "SELECT * FROM aluno";
 
+        try {
+            Class.forName("com.mysql.cj.jdbc.Driver");
+        } catch (ClassNotFoundException e){
+
+        }
+
         try (Connection conn = DriverManager.getConnection(URL, USER, PASSWORD);
 
              PreparedStatement stmt = conn.prepareStatement(sql);
@@ -59,6 +65,12 @@ public class AlunoDAO {
         List<Aluno> alunos = new ArrayList<>();
 
         String sql = "SELECT * FROM aluno WHERE curso_id = ?";
+
+        try {
+            Class.forName("com.mysql.cj.jdbc.Driver");
+        } catch (ClassNotFoundException e){
+
+        }
 
         try (Connection conn = DriverManager.getConnection(URL, USER, PASSWORD);
 
@@ -98,6 +110,12 @@ public class AlunoDAO {
 
         String sql = "SELECT * FROM aluno WHERE id = ?";
 
+        try {
+            Class.forName("com.mysql.cj.jdbc.Driver");
+        } catch (ClassNotFoundException e){
+
+        }
+
         try (Connection conn = DriverManager.getConnection(URL, USER, PASSWORD);
 
              PreparedStatement stmt = conn.prepareStatement(sql)) {
@@ -136,6 +154,12 @@ public class AlunoDAO {
 
         String sql = "INSERT INTO aluno(nome, idade, curso_id) VALUES (?, ?, ?)";
 
+        try {
+            Class.forName("com.mysql.cj.jdbc.Driver");
+        } catch (ClassNotFoundException e){
+
+        }
+
         try (Connection conn = DriverManager.getConnection(URL, USER, PASSWORD);
 
              PreparedStatement stmt = conn.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS)) {
@@ -170,6 +194,12 @@ public class AlunoDAO {
 
         String sql = "UPDATE aluno SET nome = ?, idade = ?, curso_id = ? WHERE id = ?";
 
+        try {
+            Class.forName("com.mysql.cj.jdbc.Driver");
+        } catch (ClassNotFoundException e){
+
+        }
+
         try (Connection conn = DriverManager.getConnection(URL, USER, PASSWORD);
 
              PreparedStatement stmt = conn.prepareStatement(sql)) {
@@ -193,6 +223,12 @@ public class AlunoDAO {
     public boolean excluir(int id) throws SQLException {
 
         String sql = "DELETE FROM aluno WHERE id = ?";
+
+        try {
+            Class.forName("com.mysql.cj.jdbc.Driver");
+        } catch (ClassNotFoundException e){
+
+        }
 
         try (Connection conn = DriverManager.getConnection(URL, USER, PASSWORD);
 
